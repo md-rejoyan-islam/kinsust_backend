@@ -68,13 +68,6 @@ userRouter
   .route("/resend-password-reset-code")
   .post(isLoggedOut, resendPasswordResetCode);
 
-// reset password by URL ( link off)
-// userRouter
-//   .route("/reset-password/:token")
-//   .patch(
-//     isLoggedOut,
-//     resetPasswordByURL);
-
 // ban user by id
 userRouter
   .route("/ban/:id")

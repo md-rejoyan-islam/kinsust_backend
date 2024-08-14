@@ -220,25 +220,27 @@ const updateUserById = asyncHandler(async (req, res) => {
   }
 
   // if user is not admin or superAdmin
-  if (!(req.me.role === "admin" || req.me.role === "superAdmin")) {
-    const immutableFields = [
-      "role",
-      "isVerified",
-      "trash",
-      "createAt",
-      "updatedAt",
-    ];
-    Object.keys(req.body).forEach((field) => {
-      if (immutableFields.includes(field)) {
-        throw createError(401, `you can't update ${field} field.`);
-      }
-    });
+  // if (!(req.me.role === "admin" || req.me.role === "superAdmin")) {
+  //   const immutableFields = [
+  //     "role",
+  //     "isVerified",
+  //     "trash",
+  //     "createAt",
+  //     "updatedAt",
+  //   ];
+  //   Object.keys(req.body).forEach((field) => {
+  //     if (immutableFields.includes(field)) {
+  //       throw createError(401, `you can't update ${field} field.`);
+  //     }
+  //   });
 
-    // if user is not admin or superAdmin
-    if (req.me.id !== user.id) {
-      throw createError(401, "You can't access this data.");
-    }
-  }
+  //   // if user is not admin or superAdmin
+  //   if (req.me.id !== user.id) {
+  //     throw createError(401, "You can't access this data.");
+  //   }
+  // }
+
+  console.log(req.body);
 
   // update options
   const options = {
