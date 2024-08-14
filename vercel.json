@@ -1,14 +1,5 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": ".",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["./**/*"]
-      }
-    }
-  ],
   "routes": [
     {
       "src": "/(.*)",
