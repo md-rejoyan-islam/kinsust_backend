@@ -40,8 +40,6 @@ const allProgram = asyncHandler(async (req, res) => {
     attributes: queries.fields, // specify the fields to display
   });
 
-  // console.log(programs);
-
   // if no data found
   if (!programs.length)
     throw createError(404, "couldn't find any program data.");

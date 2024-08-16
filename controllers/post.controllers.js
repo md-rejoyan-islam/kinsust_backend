@@ -315,8 +315,6 @@ const commentOnPostById = asyncHandler(async (req, res) => {
     ],
   });
 
-  console.log(updatedData.comments);
-
   // response send
   successResponse(res, {
     statusCode: 200,

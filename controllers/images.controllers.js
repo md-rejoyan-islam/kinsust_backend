@@ -4,7 +4,18 @@ const asyncHandler = require("express-async-handler");
 const { successResponse } = require("../services/responseHandler.js");
 const checkImage = require("../services/imagesCheck.js");
 
-// advisors images
+/**
+ *
+ * @apiDescription    Get all advisors images
+ * @apiMethod         GET
+ *
+ * @apiRoute          /api/v1/images/advisors
+ * @apiAccess         Admin | SuperAdmin
+ *
+ * @apiSuccess        { success: true , message : Advisors data fetched successfully. , data: [] }
+ * @apiFailed         { success: false , error: { status, message }
+ *
+ */
 
 const advisorsImages = asyncHandler(async (req, res) => {
   const allImages = checkImage("advisors");
@@ -19,7 +30,19 @@ const advisorsImages = asyncHandler(async (req, res) => {
   });
 });
 
-// single advisor image delete
+/**
+ *
+ * @apiDescription    Delete advisor image by name
+ * @apiMethod         DELETE
+ *
+ * @apiRoute          /api/v1/images/advisors/:name
+ * @apiAccess         Admin | SUperAdmin
+ *
+ * @apiSuccess        { success: true , message : successfully deleted. , data: [] }
+ * @apiFailed         { success: false , error: { status, message }
+ *
+ */
+
 const advisorsImageDelete = asyncHandler(async (req, res) => {
   const { name } = req.params;
 
@@ -32,6 +55,18 @@ const advisorsImageDelete = asyncHandler(async (req, res) => {
   });
 });
 
+/**
+ *
+ * @apiDescription    Get all slider images
+ * @apiMethod         GET
+ *
+ * @apiRoute          /api/v1/images/sliders
+ * @apiAccess         Admin | SuperAdmin
+ *
+ * @apiSuccess        { success: true , message : Slider images fetched successfully. , data: [] }
+ * @apiFailed         { success: false , error: { status, message }
+ *
+ */
 const slidersImages = asyncHandler(async (req, res) => {
   const allImages = checkImage("sliders");
 
@@ -45,7 +80,18 @@ const slidersImages = asyncHandler(async (req, res) => {
   });
 });
 
-// single advisor image delete
+/**
+ *
+ * @apiDescription    Delete slider image by name
+ * @apiMethod         DELETE
+ *
+ * @apiRoute          /api/v1/images/sliders/:name
+ * @apiAccess         Admin | SuperAdmin
+ *
+ * @apiSuccess        { success: true , message : successfully deleted. , data: [] }
+ * @apiFailed         { success: false , error: { status, message }
+ *
+ */
 const slidersImageDelete = asyncHandler(async (req, res) => {
   const { name } = req.params;
 
@@ -57,7 +103,18 @@ const slidersImageDelete = asyncHandler(async (req, res) => {
   });
 });
 
-// programs images
+/**
+ *
+ * @apiDescription    Get all programs images
+ * @apiMethod         GET
+ *
+ * @apiRoute          /api/v1/images/programs
+ * @apiAccess         Admin | SuperAdmin
+ *
+ * @apiSuccess        { success: true , message : Program images fetched successfully. , data: [] }
+ * @apiFailed         { success: false , error: { status, message }
+ *
+ */
 const programImages = asyncHandler(async (req, res) => {
   const allImages = checkImage("programs");
   // response send
@@ -70,7 +127,18 @@ const programImages = asyncHandler(async (req, res) => {
   });
 });
 
-// single advisor image delete
+/**
+ *
+ * @apiDescription    Delete program image by name
+ * @apiMethod         DELETE
+ *
+ * @apiRoute          /api/v1/images/programs/:name
+ * @apiAccess         Admin | Superadmin
+ *
+ * @apiSuccess        { success: true , message : successfully deleted. , data: [] }
+ * @apiFailed         { success: false , error: { status, message }
+ *
+ */
 const programImageDelete = asyncHandler(async (req, res) => {
   const { name } = req.params;
   unlinkSync(path.resolve(`./public/images/programs/${name}`));
@@ -82,7 +150,18 @@ const programImageDelete = asyncHandler(async (req, res) => {
   });
 });
 
-// users images
+/**
+ *
+ * @apiDescription    Get all users images
+ * @apiMethod         GET
+ *
+ * @apiRoute          /api/v1/images/users
+ * @apiAccess         Admin | SuperAdmin
+ *
+ * @apiSuccess        { success: true , message : User images fetched successfully. , data: [] }
+ * @apiFailed         { success: false , error: { status, message }
+ *
+ */
 const usersImages = asyncHandler(async (req, res) => {
   const allImages = checkImage("users");
 
@@ -96,7 +175,18 @@ const usersImages = asyncHandler(async (req, res) => {
   });
 });
 
-// single user image delete
+/**
+ *
+ * @apiDescription    Delete user image by name
+ * @apiMethod         DELETE
+ *
+ * @apiRoute          /api/v1/images/users/:name
+ * @apiAccess         Admin | Superadmin
+ *
+ * @apiSuccess        { success: true , message : successfully deleted. , data: [] }
+ * @apiFailed         { success: false , error: { status, message }
+ *
+ */
 const usersImageDelete = asyncHandler(async (req, res) => {
   const { name } = req.params;
   unlinkSync(path.resolve(`./public/images/users/${name}`));
@@ -107,7 +197,19 @@ const usersImageDelete = asyncHandler(async (req, res) => {
   });
 });
 
-// post images
+/**
+ *
+ * @apiDescription    Get all psot images
+ * @apiMethod         GET
+ *
+ * @apiRoute          /api/v1/images/posts
+ * @apiAccess         Admin | SuperAdmin
+ *
+ * @apiSuccess        { success: true , message : Program images fetched successfully. , data: [] }
+ * @apiFailed         { success: false , error: { status, message }
+ *
+ */
+
 const postImages = asyncHandler(async (req, res) => {
   const allImages = checkImage("posts");
 
@@ -121,7 +223,18 @@ const postImages = asyncHandler(async (req, res) => {
   });
 });
 
-// single post image delete
+/**
+ *
+ * @apiDescription    Delete post image by name
+ * @apiMethod         DELETE
+ *
+ * @apiRoute          /api/v1/images/posts/:name
+ * @apiAccess         Admin | Superadmin
+ *
+ * @apiSuccess        { success: true , message : successfully deleted. , data: [] }
+ * @apiFailed         { success: false , error: { status, message }
+ *
+ */
 const postImageDelete = asyncHandler(async (req, res) => {
   const { name } = req.params;
 

@@ -283,7 +283,6 @@ const addMemberInEc = asyncHandler(async (req, res) => {
     include: "members",
   });
 
-  // console.log(updatedData);
   updatedData.forEach((data) => {
     data.members.forEach((member) => {
       if (member.ECMember.id == ec.dataValues.id) {
@@ -372,7 +371,6 @@ const memberDataUpdateById = asyncHandler(async (req, res) => {
     include: "members",
   });
 
-  // console.log(updatedData);
   updatedData.forEach((data) => {
     data.members.forEach((member) => {
       if (member.ECMember.id == id) {
@@ -425,13 +423,12 @@ const removeMemberById = asyncHandler(async (req, res) => {
     include: "members",
   });
 
-  // console.log(updatedData);
   updatedData.forEach((data) => {
     data.members.forEach((member) => {
       updatedData = data;
     });
   });
-  // console.log(updatedData);
+
   // success response send
   successResponse(res, {
     statusCode: 200,

@@ -1,6 +1,5 @@
 const authorization = (...role) => {
   return async (req, res, next) => {
-    
     if (!role.includes(req?.me?.role)) {
       return res.status(403).json({
         Status: "Failed",
@@ -9,13 +8,12 @@ const authorization = (...role) => {
     }
 
     // make sure the user is authorized
-
     const id = req?.params?.id;
 
     if (id) {
- 
-      if( (
-        req?.me?.role === "admin" || req?.me.role ==="superAdmin") ||
+      if (
+        req?.me?.role === "admin" ||
+        req?.me.role === "superAdmin" ||
         req?.me?._id.toString().split('"')[0] === id
       ) {
         return next();
@@ -30,7 +28,6 @@ const authorization = (...role) => {
   };
 };
 
-
-module.exports={
-  authorization
-}
+module.exports = {
+  authorization,
+};

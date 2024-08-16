@@ -12,6 +12,8 @@ const {
 const sendAccountVerifyMail = require("../utils/email/accountActivationMail");
 const matchPassword = require("../helper/matchPassword");
 
+const { setCookies, clearCookie } = require("../services/cookies");
+
 /**
  *
  * @apiDescription    Create a new user account
@@ -76,11 +78,12 @@ const userRegister = asyncHandler(async (req, res) => {
   await sendAccountVerifyMail(emailData);
 
   // verify token set to cookie
-  res.cookie("verifyToken", verifyToken, {
-    httpOnly: false,
-    maxAge: 1000 * 60 * 5, // 5 min,
-    secure: true, // only https
-    sameSite: "none",
+
+  setCookies({
+    res: res,
+    name: "verifyToken",
+    value: verifyToken,
+    maxAge: 1000 * 60 * 5, // 5 min
   });
 
   // success response send
@@ -160,9 +163,9 @@ const activeUserAccountByCode = asyncHandler(async (req, res) => {
         }
       );
 
-      // cookie clear
-      res?.clearCookie("verifyToken", {
-        sameSite: "strict",
+      clearCookie({
+        res,
+        name: "verifyToken",
       });
 
       // response send
@@ -225,11 +228,11 @@ const resendActivationCode = asyncHandler(async (req, res) => {
   // send email
   sendAccountVerifyMail(emailData);
 
-  res.cookie("verifyToken", verifyToken, {
-    httpOnly: true,
+  setCookies({
+    res,
+    name: "verifyToken",
+    value: verifyToken,
     maxAge: 1000 * 60 * 5, // 5 min
-    secure: true, // only https
-    sameSite: "none",
   });
 
   // response send
@@ -291,16 +294,11 @@ const userLogin = asyncHandler(async (req, res) => {
     process.env.JWT_LOGIN_EXPIRE
   );
 
-  // response send
-  res.cookie("accessToken", accessToken, {
-    httpOnly: true,
+  setCookies({
+    res,
+    name: "accessToken",
+    value: accessToken,
     maxAge: 1000 * 60 * 60 * 24 * 15, // 15 days
-    secure: false, // only https
-    sameSite: "strict",
-    // httpOnly: false,
-    // maxAge: 1000 * 60 * 60 * 24 * 15, // 15 days
-    // secure: true, // only https
-    // sameSite: "none",
   });
 
   successResponse(res, {
@@ -327,10 +325,9 @@ const userLogin = asyncHandler(async (req, res) => {
  *
  */
 const userLogout = (req, res) => {
-  res?.clearCookie("accessToken", {
-    httpOnly: false,
-    secure: true, // only https
-    sameSite: "none",
+  clearCookie({
+    res,
+    name: "accessToken",
   });
 
   // response send
@@ -419,12 +416,11 @@ const dashboardLogin = asyncHandler(async (req, res) => {
     process.env.JWT_LOGIN_EXPIRE
   );
 
-  // response send
-  res.cookie("accessToken", accessToken, {
-    httpOnly: false,
+  setCookies({
+    res,
+    name: "accessToken",
+    value: accessToken,
     maxAge: 1000 * 60 * 60 * 24 * 15, // 15 days
-    secure: true, // only https
-    sameSite: "none",
   });
 
   // success response send
