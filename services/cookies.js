@@ -3,7 +3,7 @@ const setCookies = ({ res, name, value, maxAge }) => {
     httpOnly: true,
     maxAge: maxAge,
     secure: true, // only https
-    sameSite: "strict",
+    sameSite: "none",
   });
 };
 
@@ -11,7 +11,7 @@ const clearCookie = ({ res, name }) => {
   res.clearCookie(name, {
     httpOnly: true,
     secure: true,
-    sameSite: "strict",
+    sameSite: "none",
   });
 };
 

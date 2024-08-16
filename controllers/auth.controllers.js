@@ -298,7 +298,7 @@ const userLogin = asyncHandler(async (req, res) => {
     res,
     name: "accessToken",
     value: accessToken,
-    maxAge: 1000 * 60 * 60 * 24 * 15, // 15 days
+    maxAge: 1000 * 60 * 60 * 24 * 365, // 365 days
   });
 
   successResponse(res, {
