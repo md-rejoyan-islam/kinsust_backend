@@ -15,6 +15,7 @@ const checkImage = require("../services/imagesCheck");
 const randomHashCode = require("../helper/randomHashCode");
 const createJWT = require("../helper/createJWT");
 const sendPasswordResetMail = require("../utils/email/passwordResetMail");
+const { setCookies, clearCookie } = require("../services/cookies");
 
 /**
  *
@@ -430,11 +431,12 @@ const forgotPassword = asyncHandler(async (req, res) => {
   await sendPasswordResetMail(emailData);
 
   // cookie set
-  res.cookie("passwordResetToken ", passwordResetToken, {
-    httpOnly: true,
-    maxAge: 1000 * 60 * 5, // 5 min
-    secure: false, // only https
-    sameSite: "strict",
+
+  setCookies({
+    res,
+    name: "passwordResetToken",
+    value: passwordResetToken,
+    maxAge: 1000 * 60 * 5,
   });
 
   // response
@@ -509,11 +511,12 @@ const resetPasswordByCode = asyncHandler(async (req, res) => {
     });
 
     // cookie remove
-    res.clearCookie("passwordResetToken", {
-      httpOnly: true,
-      secure: false, // only https
-      sameSite: "strict",
+
+    clearCookie({
+      res,
+      name: "passwordResetToken",
     });
+
     // response
     successResponse(res, {
       statusCode: 200,
@@ -580,11 +583,11 @@ const resendPasswordResetCode = asyncHandler(async (req, res) => {
   // send email
   await sendPasswordResetMail(emailData);
 
-  res.cookie("passwordResetToken", passwordResetToken, {
-    httpOnly: true,
-    maxAge: 1000 * 60 * 5, // 5 min
-    secure: false, // only https
-    sameSite: "strict",
+  setCookies({
+    res,
+    name: "passwordResetToken",
+    value: passwordResetToken,
+    maxAge: 1000 * 60 * 5,
   });
 
   // response send
