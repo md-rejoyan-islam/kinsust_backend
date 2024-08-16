@@ -27,11 +27,11 @@ This is a simple API that allows users to perform CRUD operations on a MySQL dat
 
 ## Preview
 
-The API is hosted on Render. You can access the API [here](https://kinsust-api.onrender.com/).
+The API is hosted on Alphanet. You can access the API [here](https://test-api.kinsust.org/).
 
 ## API Documentation
 
-The API documentation can be found [here](https://documenter.getpostman.com/view/13401352/TzJx9G8z).
+The API documentation can be found [here](https://documenter.getpostman.com/view/22735243/2sA3s7jUhm).
 
 ## Author
 
@@ -42,8 +42,7 @@ The API documentation can be found [here](https://documenter.getpostman.com/view
 
 ## Similar Links
 
-- [KIN API](https://github.com/kin-project/kin-api)
-- [KIN Frontend](https://github.com/kin-project/kin-frontend)
-- [KIN Backend](https://github.com/kin-project/kin-backend)
-- [ KIN Dashboard](https://github.com/kin-project/kin-dashboard)
-- [POSTMAN ](https://documenter.getpostman.com/view/13421400/TzJx9G8z)
+- [KIN API](https://github.com/md-rejoyan-islam/kinsust_backend.git)
+- [KIN Frontend](https://github.com/md-rejoyan-islam/kinsust-nextjs.git)
+- [KIN Dashboard](https://github.com/md-rejoyan-islam/kinsust-dashboard.git)
+- [POSTMAN ](https://documenter.getpostman.com/view/22735243/2sA3s7jUhm)
