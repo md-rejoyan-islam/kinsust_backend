@@ -1,4 +1,3 @@
-
 const createError = require("http-errors");
 
 const existData = async (model, findData = {}, msg) => {
@@ -6,7 +5,6 @@ const existData = async (model, findData = {}, msg) => {
   if (data) {
     throw createError(409, msg);
   }
-
 };
 
 module.exports = existData;

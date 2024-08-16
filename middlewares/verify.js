@@ -16,8 +16,6 @@ const isLoggedIn = asyncHandler(async (req, res, next) => {
     );
   }
 
-  console.log(token);
-
   jwt.verify(token, process.env.JWT_LOGIN_SECRET_KEY, async (err, decode) => {
     if (err) {
       errorResponse(res, {

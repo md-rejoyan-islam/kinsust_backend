@@ -9,8 +9,11 @@ const customError = require("http-errors");
 
 /**
  * @description get all sliders data
+ *
  * @method GET
+ *
  * @route  /api/v1/slider
+ *
  * @access public
  */
 
@@ -34,8 +37,11 @@ const getAllSlider = asyncHandler(async (req, res) => {
 
 /**
  * @description get single slider data
+ *
  * @method GET
+ *
  * @route  /api/v1/slider/:id
+ *
  * @access private
  */
 
@@ -63,7 +69,6 @@ const findSliderById = asyncHandler(async (req, res) => {
  */
 
 const addSlider = asyncHandler(async (req, res) => {
-
   const { title } = req.body;
 
   if (!title) {
@@ -138,12 +143,10 @@ const updateSliderById = asyncHandler(async (req, res) => {
   const id = req.params.id;
   const slider = await Slider.findByPk(id);
   // slider check
-  if (!slider) 
-    throw customError(400, "Couldn't find any slider data.");
-  
+  if (!slider) throw customError(400, "Couldn't find any slider data.");
 
   // update slider data
-   await Slider.update(
+  await Slider.update(
     { ...req.body, slider_photo: req?.file?.filename },
     { where: { id } }
   );
@@ -167,7 +170,6 @@ const updateSliderById = asyncHandler(async (req, res) => {
     },
   });
 });
-
 
 /**
  * @description       bulk create slider data
@@ -198,11 +200,8 @@ const bulkCreateSlider = asyncHandler(async (req, res) => {
  */
 
 const bulkDeleteSlider = asyncHandler(async (req, res) => {
-
   const sliders = await Slider.findAll();
-  if (!sliders)
-    throw createError(400, "Couldn't find any slider data!");
-
+  if (!sliders) throw createError(400, "Couldn't find any slider data!");
 
   // delete slider data
   await Slider.destroy({
@@ -214,11 +213,8 @@ const bulkDeleteSlider = asyncHandler(async (req, res) => {
   successResponse(res, {
     statusCode: 200,
     message: "Successfully deleted all sliders data.",
-  }); })
-
-
-
-
+  });
+});
 
 // export slider
 module.exports = {

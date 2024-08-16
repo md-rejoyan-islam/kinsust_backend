@@ -25,9 +25,8 @@ const getSingleOrgByEmail = asyncHandler(async (req, res, next) => {
   // get org id
   const email = req.params.email;
 
-
   // find org member data
-  const org = await orgModel.findOne({email});
+  const org = await orgModel.findOne({ email });
   if (!org) throw createError(400, "Couldn't find any org member data.");
 
   // response send
@@ -98,27 +97,20 @@ const deleteOrgById = asyncHandler(async (req, res, next) => {
 
 // create org member data
 const createOrg = asyncHandler(async (req, res, next) => {
- 
-
-
   // email check
-  const orgData = await orgModel.findOne({email:req.body.email})
+  const orgData = await orgModel.findOne({ email: req.body.email });
 
-  if(orgData) throw createError(400,"Email already exists")
+  if (orgData) throw createError(400, "Email already exists");
 
-  const allData= await orgModel.find()
-
-
+  const allData = await orgModel.find();
 
   // create org member data
   const org = await orgModel.create({
     ...req.body,
     org_photo: req?.file?.filename,
 
-    form_number :`Online-${allData.length+1}`
+    form_number: `Online-${allData.length + 1}`,
   });
-
-
 
   // response send
   successResponse(res, {
@@ -132,7 +124,6 @@ const createOrg = asyncHandler(async (req, res, next) => {
 
 module.exports = {
   getAllOrg,
-
   updateOrgById,
   deleteOrgById,
   createOrg,

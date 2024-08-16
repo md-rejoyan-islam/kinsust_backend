@@ -50,7 +50,7 @@ app.use("/public", express.static("./public"));
 app.use("/api/v1/subscribers", subscriberRouter);
 app.use("/api/v1/advisors", advisorRouter);
 app.use("/api/v1/programs", programRouter);
-app.use("/api/v1/sliders", sliderRouter);
+// app.use("/api/v1/sliders", sliderRouter);
 app.use("/api/v1/posts", postRouter);
 
 app.use("/api/v1/users", userRouter);
@@ -58,11 +58,7 @@ app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/ec", ecRouter);
 app.use("/api/v1/images", imagesRouter);
 
-// // images routes
-// app.use("/api/v1/images", imagesRouter);
-// //post routes
-
-// // org
+// org
 // app.use("/api/v1/org-members", orgRouter);
 
 // invalid route handler
