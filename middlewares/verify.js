@@ -4,7 +4,10 @@ const createError = require("http-errors");
 const User = require("../model/user.model");
 
 const isLoggedIn = asyncHandler(async (req, res, next) => {
-  const token = req?.cookies?.accessToken;
+  const token =
+    req?.cookies?.accessToken ||
+    (req?.headers["authorization"] &&
+      req.headers["authorization"].split(" ")[1]);
 
   if (!token) {
     throw createError(
@@ -12,6 +15,8 @@ const isLoggedIn = asyncHandler(async (req, res, next) => {
       "Unauthorized, Access token not found. Please login."
     );
   }
+
+  console.log(token);
 
   jwt.verify(token, process.env.JWT_LOGIN_SECRET_KEY, async (err, decode) => {
     if (err) {

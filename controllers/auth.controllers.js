@@ -293,10 +293,14 @@ const userLogin = asyncHandler(async (req, res) => {
 
   // response send
   res.cookie("accessToken", accessToken, {
-    httpOnly: false,
+    httpOnly: true,
     maxAge: 1000 * 60 * 60 * 24 * 15, // 15 days
-    secure: true, // only https
-    sameSite: "none",
+    secure: false, // only https
+    sameSite: "strict",
+    // httpOnly: false,
+    // maxAge: 1000 * 60 * 60 * 24 * 15, // 15 days
+    // secure: true, // only https
+    // sameSite: "none",
   });
 
   successResponse(res, {
@@ -357,6 +361,7 @@ const me = asyncHandler(async (req, res) => {
   if (!req?.me) {
     throw createError(404, "Couldn't find any user account!. Please register.");
   }
+
   successResponse(res, {
     statusCode: 200,
     message: "Login User Data.",

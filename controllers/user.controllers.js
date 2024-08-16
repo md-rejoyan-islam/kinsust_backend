@@ -208,6 +208,8 @@ const findUserById = asyncHandler(async (req, res) => {
 const updateUserById = asyncHandler(async (req, res) => {
   const id = req.params.id;
 
+  console.log(req.body);
+
   // user check by id
   const user = await User.findByPk(id);
 
@@ -572,7 +574,7 @@ const resendPasswordResetCode = asyncHandler(async (req, res) => {
   // prepare email data
   const emailData = {
     email,
-    subject: "Account Activation Code",
+    subject: "Password Reset Code",
     code,
     passwordResetToken,
   };
