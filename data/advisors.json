@@ -4,49 +4,49 @@
     "designation": "Professor, Department of Anthropology",
     "institute": "Shahjalal University of Science and Technology",
     "email": "akmmislam@gmail.com",
-    "advisor_photo": "mazhar.jpg",
     "cell": "+8801711346909",
+    "advisor_photo": "1698010232630-mazhar.jpg",
     "website": "http://www.sust.edu/d/anp/faculty-profile-detail/342",
-    "index": 2
+    "index": "2"
   },
   {
     "name": "Dr. Mohammad Muhshin Aziz Khan",
     "designation": "Professor, Department of Industrial and Production Engineering",
     "institute": "Shahjalal University of Science and Technology",
     "email": "muhshin-ipe@sust.edu",
-    "advisor_photo": "mohsin.png",
     "cell": "+8801611012105",
+    "advisor_photo": "1698010239236-mohsin.png",
     "website": "http://www.sust.edu/d/ipe/faculty-profile-detail/313",
-    "index": 3
+    "index": "3"
   },
   {
     "name": "Dr. Zayeda Sharmin",
     "designation": "Professor, Department of Political Studies",
     "institute": "Shahjalal University of Science and Technology",
     "email": "zsharmin-psa@sust.edu",
-    "advisor_photo": "sharmin.jpg",
     "cell": "+8801735562516",
+    "advisor_photo": "1698010247588-sharmin.jpg",
     "website": "http://www.sust.edu/d/pss/faculty-profile-detail/419",
-    "index": 4
+    "index": "4"
   },
   {
     "name": "Mohammad Abdullah-Al-Shoeb",
     "designation": "Associate Professor, Department of Biochemistry and Molecular Biology",
     "institute": "Shahjalal University of Science and Technology",
     "email": "maashoeb-bmb@sust.edu",
-    "advisor_photo": "soyab.jpg",
     "cell": "+8801787501398",
+    "advisor_photo": "1698010255517-soyab.jpg",
     "website": "http://www.sust.edu/d/bmb/faculty-profile-detail/25",
-    "index": 5
+    "index": "5"
   },
   {
     "name": "Professor Amina Pervin",
     "designation": "Treasurer",
-    "advisor_photo": "amena-mam.jpg",
     "institute": "Shahjalal University of Science and Technology",
     "email": "apervin-scw@sust.edu",
     "cell": "+8801712375748",
+    "advisor_photo": "1698010263850-amena-mam.jpg",
     "website": "http://www.sust.edu/d/scw/faculty-profile-detail/450",
-    "index": 1
+    "index": "1"
   }
 ]
